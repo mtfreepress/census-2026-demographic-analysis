@@ -1,0 +1,127 @@
+CC-EST2025-AGESEX-[ST-FIPS]: Annual County and Puerto Rico Municipio Resident Population
+Estimates by Selected Age Groups and Sex: April 1, 2020 to July 1, 2025
+File: 7/1/2025 County Characteristics Resident Population Estimates
+Source: U.S. Census Bureau, Population Division
+Release date: June 2026
+Sort order of observations: COUNTY and YEAR within STATE
+Data fields (in order of appearance):
+VARIABLE DESCRIPTION
+SUMLEV Geographic Summary Level
+STATE State FIPS code
+COUNTY County FIPS code
+STNAME State name
+CTYNAME County name
+YEAR Year
+POPESTIMATE Total population
+POPEST_MALE Male population
+POPEST_FEM Female population
+UNDER5_TOT Total population under 5 years
+UNDER5_MALE Male population under 5 years
+UNDER5_FEM Female population under 5 years
+AGE513_TOT Total population age 5 to 13
+AGE513_MALE Male population age 5 to 13
+AGE513_FEM Female population age 5 to 13
+AGE1417_TOT Total population age 14 to 17
+AGE1417_MALE Male population age 14 to 17
+AGE1417_FEM Female population age 14 to 17
+AGE1824_TOT Total population age 18 to 24
+AGE1824_MALE Male population age 18 to 24
+AGE1824_FEM Female population age 18 to 24
+AGE16PLUS_TOT Total population age 16 years and over
+AGE16PLUS_MALE Male population age 16 years and over
+AGE16PLUS_FEM Female population age 16 years and over
+AGE18PLUS_TOT Total population age 18 years and over
+AGE18PLUS_MALE Male population age 18 years and over
+AGE18PLUS_FEM Female population age 18 years and over
+AGE1544_TOT Total population age 15 to 44
+AGE1544_MALE Male population age 15 to 44
+AGE1544_FEM Female population age 15 to 44
+AGE2544_TOT Total population age 25 to 44
+AGE2544_MALE Male population age 25 to 44
+AGE2544_FEM Female population age 25 to 44
+AGE4564_TOT Total population age 45 to 64
+AGE4564_MALE Male population age 45 to 64
+AGE4564_FEM Female population age 45 to 64
+AGE65PLUS_TOT Total population age 65 years and over
+AGE65PLUS_MALE Male population age 65 years and over
+AGE65PLUS_FEM Female population age 65 years and over
+AGE04_TOT Total population age 0 to 4
+AGE04_MALE Male population age 0 to 4
+AGE04_FEM Female population age 0 to 4
+AGE59_TOT Total population age 5 to 9
+AGE59_MALE Male population age 5 to 9
+AGE59_FEM Female population age 5 to 9
+AGE1014_TOT Total population age 10 to 14
+AGE1014_MALE Male population age 10 to 14
+AGE1014_FEM Female population age 10 to 14
+AGE1519_TOT Total population age 15 to 19
+AGE1519_MALE Male population age 15 to 19
+AGE1519_FEM Female population age 15 to 19
+AGE2024_TOT Total population age 20 to 24
+AGE2024_MALE Male population age 20 to 24
+AGE2024_FEM Female population age 20 to 24
+AGE2529_TOT Total population age 25 to 29
+AGE2529_MALE Male population age 25 to 29
+AGE2529_FEM Female population age 25 to 29
+AGE3034_TOT Total population age 30 to 34
+AGE3034_MALE Male population age 30 to 34
+AGE3034_FEM Female population age 30 to 34
+AGE3539_TOT Total population age 35 to 39
+AGE3539_MALE Male population age 35 to 39
+AGE3539_FEM Female population age 35 to 39
+AGE4044_TOT Total population age 40 to 44
+AGE4044_MALE Male population age 40 to 44
+AGE4044_FEM Female population age 40 to 44
+AGE4549_TOT Total population age 45 to 49
+AGE4549_MALE Male population age 45 to 49
+AGE4549_FEM Female population age 45 to 49
+AGE5054_TOT Total population age 50 to 54
+AGE5054_MALE Male population age 50 to 54
+AGE5054_FEM Female population age 50 to 54
+AGE5559_TOT Total population age 55 to 59
+AGE5559_MALE Male population age 55 to 59
+AGE5559_FEM Female population age 55 to 59
+AGE6064_TOT Total population age 60 to 64
+AGE6064_MALE Male population age 60 to 64
+AGE6064_FEM Female population age 60 to 64
+AGE6569_TOT Total population age 65 to 69
+AGE6569_MALE Male population age 65 to 69
+AGE6569_FEM Female population age 65 to 69
+AGE7074_TOT Total population age 70 to 74
+AGE7074_MALE Male population age 70 to 74
+AGE7074_FEM Female population age 70 to 74
+AGE7579_TOT Total population age 75 to 79
+AGE7579_MALE Male population age 75 to 79
+AGE7579_FEM Female population age 75 to 79
+AGE8084_TOT Total population age 80 to 84
+AGE8084_MALE Male population age 80 to 84
+AGE8084_FEM Female population age 80 to 84
+AGE85PLUS_TOT Total population age 85 years and over
+AGE85PLUS_MALE Male population age 85 years and over
+AGE85PLUS_FEM Female population age 85 years and over
+MEDIAN_AGE_TOT Median age for total population
+MEDIAN_AGE_MALE Median age for male population
+MEDIAN_AGE_FEM Median age for female population
+The key for SUMLEV is as follows:
+050 = County and/or Statistical Equivalent
+The key for YEAR is as follows:
+1 = 4/1/2020 population estimates base
+2 = 7/1/2020 population estimate
+3 = 7/1/2021 population estimate
+4 = 7/1/2022 population estimate
+5 = 7/1/2023 population estimate
+6 = 7/1/2024 population estimate
+7 = 7/1/2025 population estimate
+Notes: The Census Bureau has reviewed this data product to ensure appropriate access, use, and
+disclosure avoidance protection of the confidential source data used to produce this product (Data
+Management System (DMS) number: P-6000042 and P-7501659. Disclosure Review Board (DRB)
+approval number: CBDRB-FY25-0466).
+The estimates are based on the 2020 Modified Age and Race Census (MARC) file and include
+changes from Count Question Resolution, the Post-Census Group Quarters Review, and geographic
+revisions. The estimates add births to, subtract deaths from, and add net migration to the April 1,
+2020 estimates base. For population estimates methodology statements, see
+https://www.census.gov/programs-surveys/popest/technical-documentation/methodology.html.
+Median age is calculated based on single year of age.
+All geographic boundaries for the 2025 population estimates series are as of January 1, 2025.
+Substantial geographic changes to counties can be found on the Census Bureau website at
+https://www.census.gov/programs-surveys/geography/technical-documentation/countychanges.html.

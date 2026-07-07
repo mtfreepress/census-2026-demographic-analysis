@@ -1,0 +1,144 @@
+CC-EST2025-ALLDATA-[ST-FIPS]: Annual County Resident Population Estimates by Age,
+Sex, Race, and Hispanic Origin: April 1, 2020 to July 1, 2025
+File: 7/1/2025 County Characteristics Resident Population Estimates
+Source: U.S. Census Bureau, Population Division
+Release date: June 2026
+Sort order of observations: COUNTY, YEAR, and AGEGRP within STATE
+Data fields (in order of appearance):
+
+VARIABLE DESCRIPTION
+SUMLEV Geographic Summary level
+STATE State FIPS code
+COUNTY County FIPS code
+STNAME State Name
+CTYNAME County Name
+YEAR Year
+AGEGRP Age Group
+TOT_POP Total population
+TOT_MALE Total male population
+TOT_FEMALE Total female population
+WA_MALE White alone male population
+WA_FEMALE White alone female population
+BA_MALE Black or African American alone male population
+BA_FEMALE Black or African American alone female population
+IA_MALE American Indian and Alaska Native alone male population
+IA_FEMALE American Indian and Alaska Native alone female population
+AA_MALE Asian alone male population
+AA_FEMALE Asian alone female population
+NA_MALE Native Hawaiian and Other Pacific Islander alone male population
+NA_FEMALE Native Hawaiian and Other Pacific Islander alone female population
+TOM_MALE Two or More Races male population
+TOM_FEMALE Two or More Races female population
+WAC_MALE White alone or in combination male population
+WAC_FEMALE White alone or in combination female population
+BAC_MALE Black or African American alone or in combination male population
+BAC_FEMALE Black or African American alone or in combination female population
+IAC_MALE American Indian and Alaska Native alone or in combination male population
+IAC_FEMALE American Indian and Alaska Native alone or in combination female population
+AAC_MALE Asian alone or in combination male population
+AAC_FEMALE Asian alone or in combination female population
+NAC_MALE Native Hawaiian and Other Pacific Islander alone or in
+combination male population
+NAC_FEMALE Native Hawaiian and Other Pacific Islander alone or in
+combination female population
+NH_MALE Not Hispanic male population
+NH_FEMALE Not Hispanic female population
+NHWA_MALE Not Hispanic, White alone male population
+NHWA_FEMALE Not Hispanic, White alone female population
+NHBA_MALE Not Hispanic, Black or African American alone male population
+NHBA_FEMALE Not Hispanic, Black or African American alone female population
+NHIA_MALE Not Hispanic, American Indian and Alaska Native alone male population
+NHIA_FEMALE Not Hispanic, American Indian and Alaska Native alone female population
+NHAA_MALE Not Hispanic, Asian alone male population
+NHAA_FEMALE Not Hispanic, Asian alone female population
+NHNA_MALE Not Hispanic, Native Hawaiian and Other Pacific Islander alone male population
+NHNA_FEMALE Not Hispanic, Native Hawaiian and Other Pacific Islander alone female population
+NHTOM_MALE Not Hispanic, Two or More Races male population
+NHTOM_FEMALE Not Hispanic, Two or More Races female population
+NHWAC_MALE Not Hispanic, White alone or in combination male population
+NHWAC_FEMALE Not Hispanic, White alone or in combination female population
+NHBAC_MALE Not Hispanic, Black or African American alone or in combination male population
+NHBAC_FEMALE Not Hispanic, Black or African American alone or in combination female population
+NHIAC_MALE Not Hispanic, American Indian and Alaska Native alone or in combination male population
+NHIAC_FEMALE Not Hispanic, American Indian and Alaska Native alone or in combination female population
+NHAAC_MALE Not Hispanic, Asian alone or in combination male population
+NHAAC_FEMALE Not Hispanic, Asian alone or in combination female population
+NHNAC_MALE Not Hispanic, Native Hawaiian and Other Pacific Islander alone or in combination male population
+NHNAC_FEMALE Not Hispanic, Native Hawaiian and Other Pacific Islander alone or in combination female population
+H_MALE Hispanic male population
+H_FEMALE Hispanic female population
+HWA_MALE Hispanic, White alone male population
+HWA_FEMALE Hispanic, White alone female population
+HBA_MALE Hispanic, Black or African American alone male population
+HBA_FEMALE Hispanic, Black or African American alone female population
+HIA_MALE Hispanic, American Indian and Alaska Native alone male population
+HIA_FEMALE Hispanic, American Indian and Alaska Native alone female population
+HAA_MALE Hispanic, Asian alone male population
+HAA_FEMALE Hispanic, Asian alone female population
+HNA_MALE Hispanic, Native Hawaiian and Other Pacific Islander alone male population
+HNA_FEMALE Hispanic, Native Hawaiian and Other Pacific Islander alone female population
+HTOM_MALE Hispanic, Two or More Races male population
+HTOM_FEMALE Hispanic, Two or More Races female population
+HWAC_MALE Hispanic, White alone or in combination male population
+HWAC_FEMALE Hispanic, White alone or in combination female population
+HBAC_MALE Hispanic, Black or African American alone or in combination male population
+HBAC_FEMALE Hispanic, Black or African American alone or in combination female population
+HIAC_MALE Hispanic, American Indian and Alaska Native alone or in combination male population
+HIAC_FEMALE Hispanic, American Indian and Alaska Native alone or in combination female population
+HAAC_MALE Hispanic, Asian alone or in combination male population
+HAAC_FEMALE Hispanic, Asian alone or in combination female population
+HNAC_MALE Hispanic, Native Hawaiian and Other Pacific Islander alone or in combination male population
+HNAC_FEMALE Hispanic, Native Hawaiian and Other Pacific Islander alone or in combination female population
+The key for SUMLEV is as follows:
+050 = County and/or Statistical Equivalent
+The key for the YEAR variable is as follows:
+1 = 4/1/2020 population estimates base
+2 = 7/1/2020 population estimate
+3 = 7/1/2021 population estimate
+4 = 7/1/2022 population estimate
+5 = 7/1/2023 population estimate
+6 = 7/1/2024 population estimate
+7 = 7/1/2025 population estimate
+
+The key for AGEGRP is as follows:
+0 = Total
+1 = Age 0 to 4 years
+2 = Age 5 to 9 years
+3 = Age 10 to 14 years
+4 = Age 15 to 19 years
+5 = Age 20 to 24 years
+6 = Age 25 to 29 years
+7 = Age 30 to 34 years
+8 = Age 35 to 39 years
+9 = Age 40 to 44 years
+10 = Age 45 to 49 years
+11 = Age 50 to 54 years
+12 = Age 55 to 59 years
+13 = Age 60 to 64 years
+14 = Age 65 to 69 years
+15 = Age 70 to 74 years
+16 = Age 75 to 79 years
+17 = Age 80 to 84 years
+18 = Age 85 years or older
+Notes: The Census Bureau has reviewed this data product to ensure appropriate access, use, and
+disclosure avoidance protection of the confidential source data used to produce this product (Data
+Management System (DMS) number: P-6000042 and P-7501659. Disclosure Review Board
+(DRB) approval number: CBDRB-FY25-0466).
+The estimates are based on the 2020 Modified Age and Race Census (MARC) file and include
+changes from Count Question Resolution, the Post-Census Group Quarters Review, and
+geographic revisions. The estimates add births to, subtract deaths from, and add net migration to
+the April 1, 2020 estimates base. For population estimates methodology statements, see
+https://www.census.gov/programs-surveys/popest/technical-documentation/methodology.html.
+Race data in the Vintage 2025 estimates are based on the 1997 Office of Management and
+Budget Standards for Maintaining, Collecting, and Presenting Federal Data on Race and
+Ethnicity. "In combination" means in combination with one or more other races. The sum of
+the five race groups adds to more than the total population because individuals may report
+more than one race. Hispanic origin is considered an ethnicity, not a race. Hispanics may be of
+any race. Responses of “Some Other Race” from the decennial census are modified to be
+consistent with the race categories that appear in our input data. This contributes to differences
+between the population for specific race categories shown and those published from the 2020
+Census. To learn more about the “Modified Race” process, go to
+https://www.census.gov/programs-surveys/popest/technical-documentation/research/modifiedrace-data.html.
+All geographic boundaries for the 2025 population estimates series are as of January 1, 2025.
+Substantial geographic changes to counties can be found on the Census Bureau website at
+https://www.census.gov/programs-surveys/geography/technical-documentation/countychanges.html.
