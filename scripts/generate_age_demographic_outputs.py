@@ -23,7 +23,7 @@ SENIOR_FEMALE_COLUMNS = ("AGE65PLUS_FEM",)
 
 START_YEAR = "2"
 END_YEAR = "7"
-RATIO_YEARS = {
+INDEX_YEARS = {
     "2": "2020",
     "3": "2021",
     "4": "2022",
@@ -42,15 +42,18 @@ CHANGE_COLUMNS = (
     "femalePctChange",
 )
 
-RATIO_COLUMNS = (
+AGING_INDEX_COLUMNS = (
     "county",
-    "ratio2020",
-    "ratio2021",
-    "ratio2022",
-    "ratio2023",
-    "ratio2024",
-    "ratio2025",
-    "pctChange20to25",
+    "agingIndex2020",
+    "agingIndex2021",
+    "agingIndex2022",
+    "agingIndex2023",
+    "agingIndex2024",
+    "agingIndex2025",
+    "agingIndexPointChange20to25",
+    "agingIndexPctChange20to25",
+    "seniorAbsoluteChange",
+    "childrenAbsoluteChange",
 )
 
 
@@ -58,8 +61,14 @@ def population(row: dict[str, str], columns: tuple[str, ...]) -> int:
     return sum(int(row[column]) for column in columns)
 
 
-def pct_change(start: int | float, end: int | float) -> float | None:
-    if start == 0:
+def aging_index(children: int, seniors: int) -> float | None:
+    if children == 0:
+        return None
+    return (seniors / children) * 100
+
+
+def pct_change(start: int | float | None, end: int | float | None) -> float | None:
+    if start in (None, 0) or end is None:
         return None
     return ((end - start) / start) * 100
 
@@ -119,7 +128,7 @@ def load_rows() -> dict[tuple[str, str], dict[str, dict[str, str]]]:
             key = (row["STATE"], row["COUNTY"])
             rows_by_county.setdefault(key, {})[row["YEAR"]] = row
 
-    needed_years = {START_YEAR, END_YEAR, *RATIO_YEARS}
+    needed_years = {START_YEAR, END_YEAR, *INDEX_YEARS}
     missing_years = {
         rows[START_YEAR]["CTYNAME"] if START_YEAR in rows else f"{state}-{county}": sorted(
             needed_years - set(rows)
@@ -187,7 +196,7 @@ def build_change_rows(
     return output_rows
 
 
-def build_ratio_rows(
+def build_aging_index_rows(
     rows_by_county: dict[tuple[str, str], dict[str, dict[str, str]]],
     county_keys: list[tuple[str, str]] | None = None,
 ) -> list[dict[str, str]]:
@@ -195,23 +204,39 @@ def build_ratio_rows(
 
     for key in county_keys if county_keys is not None else sorted(rows_by_county):
         county_rows = rows_by_county[key]
-        ratios: dict[str, float | None] = {}
-        for year, label in RATIO_YEARS.items():
+        indexes: dict[str, float | None] = {}
+        for year, label in INDEX_YEARS.items():
             row = county_rows[year]
             children = population(row, CHILD_TOTAL_COLUMNS)
             seniors = population(row, SENIOR_TOTAL_COLUMNS)
-            ratios[label] = None if seniors == 0 else children / seniors
+            indexes[label] = aging_index(children, seniors)
+
+        children_2020 = population(county_rows[START_YEAR], CHILD_TOTAL_COLUMNS)
+        children_2025 = population(county_rows[END_YEAR], CHILD_TOTAL_COLUMNS)
+        seniors_2020 = population(county_rows[START_YEAR], SENIOR_TOTAL_COLUMNS)
+        seniors_2025 = population(county_rows[END_YEAR], SENIOR_TOTAL_COLUMNS)
+
+        index_point_change = (
+            None
+            if indexes["2020"] is None or indexes["2025"] is None
+            else indexes["2025"] - indexes["2020"]
+        )
 
         output_rows.append(
             {
                 "county": county_rows[START_YEAR]["CTYNAME"],
-                "ratio2020": format_number(ratios["2020"], places=6),
-                "ratio2021": format_number(ratios["2021"], places=6),
-                "ratio2022": format_number(ratios["2022"], places=6),
-                "ratio2023": format_number(ratios["2023"], places=6),
-                "ratio2024": format_number(ratios["2024"], places=6),
-                "ratio2025": format_number(ratios["2025"], places=6),
-                "pctChange20to25": format_number(pct_change(ratios["2020"], ratios["2025"])),
+                "agingIndex2020": format_number(indexes["2020"], places=1),
+                "agingIndex2021": format_number(indexes["2021"], places=1),
+                "agingIndex2022": format_number(indexes["2022"], places=1),
+                "agingIndex2023": format_number(indexes["2023"], places=1),
+                "agingIndex2024": format_number(indexes["2024"], places=1),
+                "agingIndex2025": format_number(indexes["2025"], places=1),
+                "agingIndexPointChange20to25": format_number(index_point_change, places=1),
+                "agingIndexPctChange20to25": format_number(
+                    pct_change(indexes["2020"], indexes["2025"])
+                ),
+                "seniorAbsoluteChange": format_number(seniors_2025 - seniors_2020),
+                "childrenAbsoluteChange": format_number(children_2025 - children_2020),
             }
         )
 
@@ -252,9 +277,9 @@ def main() -> None:
         ),
     )
     write_csv(
-        OUTPUT_DIR / "child-elderly-ratio-2020-2025.csv",
-        RATIO_COLUMNS,
-        build_ratio_rows(rows_by_county),
+        OUTPUT_DIR / "aging-index-2020-2025.csv",
+        AGING_INDEX_COLUMNS,
+        build_aging_index_rows(rows_by_county),
     )
 
     write_csv(
@@ -280,9 +305,9 @@ def main() -> None:
         ),
     )
     write_csv(
-        OUTPUT_DIR / "10-largest-child-elderly-ratio-2020-2025.csv",
-        RATIO_COLUMNS,
-        build_ratio_rows(rows_by_county, largest_keys),
+        OUTPUT_DIR / "10-largest-aging-index-2020-2025.csv",
+        AGING_INDEX_COLUMNS,
+        build_aging_index_rows(rows_by_county, largest_keys),
     )
 
 
