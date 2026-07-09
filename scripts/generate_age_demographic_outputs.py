@@ -12,6 +12,8 @@ INPUT_PATH = ROOT / "input" / "census-2025-estimate-agesex.csv"
 DEFINITION_PATH = ROOT / "definitions" / "agesex-definition.txt"
 OUTPUT_DIR = ROOT / "output"
 LARGEST_COUNTY_LIMIT = 10
+STATEWIDE_KEY = ("30", "000")
+STATEWIDE_NAME = "Montana"
 
 CHILD_TOTAL_COLUMNS = ("UNDER5_TOT", "AGE513_TOT", "AGE1417_TOT")
 CHILD_MALE_COLUMNS = ("UNDER5_MALE", "AGE513_MALE", "AGE1417_MALE")
@@ -142,6 +144,28 @@ def load_rows() -> dict[tuple[str, str], dict[str, dict[str, str]]]:
     return rows_by_county
 
 
+def build_statewide_rows(
+    rows_by_county: dict[tuple[str, str], dict[str, dict[str, str]]],
+) -> dict[str, dict[str, str]]:
+    numeric_columns = required_columns() - {"STATE", "COUNTY", "CTYNAME", "YEAR"}
+    statewide_rows: dict[str, dict[str, str]] = {}
+
+    for year in INDEX_YEARS:
+        statewide_row = {
+            "STATE": STATEWIDE_KEY[0],
+            "COUNTY": STATEWIDE_KEY[1],
+            "CTYNAME": STATEWIDE_NAME,
+            "YEAR": year,
+        }
+        for column in numeric_columns:
+            statewide_row[column] = str(
+                sum(int(county_rows[year][column]) for county_rows in rows_by_county.values())
+            )
+        statewide_rows[year] = statewide_row
+
+    return statewide_rows
+
+
 def largest_county_keys(
     rows_by_county: dict[tuple[str, str], dict[str, dict[str, str]]],
     limit: int,
@@ -254,6 +278,11 @@ def main() -> None:
     validate_definition_file()
     rows_by_county = load_rows()
     largest_keys = largest_county_keys(rows_by_county, LARGEST_COUNTY_LIMIT)
+    rows_with_statewide = {
+        **rows_by_county,
+        STATEWIDE_KEY: build_statewide_rows(rows_by_county),
+    }
+    largest_keys_with_statewide = [STATEWIDE_KEY, *largest_keys]
     OUTPUT_DIR.mkdir(exist_ok=True)
 
     write_csv(
@@ -286,28 +315,28 @@ def main() -> None:
         OUTPUT_DIR / "10-largest-children-demographic-change-2020-2025.csv",
         CHANGE_COLUMNS,
         build_change_rows(
-            rows_by_county,
+            rows_with_statewide,
             CHILD_TOTAL_COLUMNS,
             CHILD_MALE_COLUMNS,
             CHILD_FEMALE_COLUMNS,
-            largest_keys,
+            largest_keys_with_statewide,
         ),
     )
     write_csv(
         OUTPUT_DIR / "10-largest-senior-demographic-change-2020-2025.csv",
         CHANGE_COLUMNS,
         build_change_rows(
-            rows_by_county,
+            rows_with_statewide,
             SENIOR_TOTAL_COLUMNS,
             SENIOR_MALE_COLUMNS,
             SENIOR_FEMALE_COLUMNS,
-            largest_keys,
+            largest_keys_with_statewide,
         ),
     )
     write_csv(
         OUTPUT_DIR / "10-largest-aging-index-2020-2025.csv",
         AGING_INDEX_COLUMNS,
-        build_aging_index_rows(rows_by_county, largest_keys),
+        build_aging_index_rows(rows_with_statewide, largest_keys_with_statewide),
     )
 
 
